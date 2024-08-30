@@ -6,7 +6,7 @@
 
 namespace bsp
 {
-    class Dma1Channel5 :
+    class Dma1Channel4 :
         public bsp::IDmaChannel
     {
     private:
@@ -14,14 +14,14 @@ namespace bsp
         bool _is_open = false;
 
     public:
-        static Dma1Channel5 &Instance()
+        static Dma1Channel4 &Instance()
         {
-            class Getter : public base::SingletonGetter<Dma1Channel5>
+            class Getter : public base::SingletonGetter<Dma1Channel4>
             {
             public:
-                std::unique_ptr<Dma1Channel5> Create() override
+                std::unique_ptr<Dma1Channel4> Create() override
                 {
-                    return std::unique_ptr<Dma1Channel5>{new Dma1Channel5{}};
+                    return std::unique_ptr<Dma1Channel4>{new Dma1Channel4{}};
                 }
 
                 void Lock() override

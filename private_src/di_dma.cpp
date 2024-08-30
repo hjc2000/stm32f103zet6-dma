@@ -1,3 +1,4 @@
+#include "Dma1Channel4.h"
 #include "Dma1Channel5.h"
 #include "DmaOptions.h"
 #include <base/container/Collection.h>
@@ -18,6 +19,7 @@ base::ICollection<std::string, bsp::IDmaChannel *> const &DI_DmaChannel()
     private:
         Initializer()
         {
+            Add(&bsp::Dma1Channel4::Instance());
             Add(&bsp::Dma1Channel5::Instance());
         }
 

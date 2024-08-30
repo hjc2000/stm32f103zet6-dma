@@ -51,6 +51,7 @@ namespace bsp
         /// @return
         std::string Request() const override
         {
+            // f103 的 DMA 通道与具体的外设绑死，所以无法自定义 DMA 的用途，所以本参数无用。
             return _request;
         }
 
@@ -58,6 +59,7 @@ namespace bsp
         /// @param value
         void SetRequest(std::string value) override
         {
+            // f103 的 DMA 通道与具体的外设绑死，所以无法自定义 DMA 的用途，所以本参数无用。
             _request = value;
         }
     };
