@@ -21,6 +21,6 @@ void bsp::Dma1Channel4::Open(bsp::IDmaOptions const &options, void *parent)
     _dma_handle.Init = static_cast<bsp::DmaOptions const &>(options);
     HAL_DMA_Init(&_dma_handle);
 
-    // DMA1_Channel5 只能用来进行串口接收
-    bsp::LinkDmaToUartRx(_dma_handle, *static_cast<UART_HandleTypeDef *>(parent));
+    // DMA1_Channel4 只能用来进行串口发送
+    bsp::LinkDmaToUartTx(_dma_handle, *static_cast<UART_HandleTypeDef *>(parent));
 }
