@@ -18,5 +18,8 @@ namespace bsp
         {
             return __HAL_DMA_GET_COUNTER(&_dma_handle);
         }
+
+        void LinkDmaToUartTx(UART_HandleTypeDef &uart);
+        void LinkDmaToUartRx(UART_HandleTypeDef &uart);
     };
 } // namespace bsp

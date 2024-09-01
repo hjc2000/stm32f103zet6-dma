@@ -1,6 +1,5 @@
 #include "Dma1Channel4.h"
 #include "DmaOptions.h"
-#include "LinkDma.h"
 
 std::string bsp::Dma1Channel4::Name() const
 {
@@ -22,5 +21,5 @@ void bsp::Dma1Channel4::Open(bsp::IDmaOptions const &options, void *parent)
     HAL_DMA_Init(&_dma_handle);
 
     // DMA1_Channel4 只能用来进行串口发送
-    bsp::LinkDmaToUartTx(_dma_handle, *static_cast<UART_HandleTypeDef *>(parent));
+    LinkDmaToUartTx(*static_cast<UART_HandleTypeDef *>(parent));
 }

@@ -1,6 +1,5 @@
 #include "Dma1Channel5.h"
 #include "DmaOptions.h"
-#include "LinkDma.h"
 
 std::string bsp::Dma1Channel5::Name() const
 {
@@ -22,5 +21,5 @@ void bsp::Dma1Channel5::Open(bsp::IDmaOptions const &options, void *parent)
     HAL_DMA_Init(&_dma_handle);
 
     // DMA1_Channel5 只能用来进行串口接收
-    bsp::LinkDmaToUartRx(_dma_handle, *static_cast<UART_HandleTypeDef *>(parent));
+    LinkDmaToUartRx(*static_cast<UART_HandleTypeDef *>(parent));
 }
