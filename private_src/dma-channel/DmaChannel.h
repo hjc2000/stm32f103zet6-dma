@@ -10,6 +10,9 @@ namespace bsp
     protected:
         DMA_HandleTypeDef _dma_handle{};
 
+        void LinkDmaToUartTx(UART_HandleTypeDef &uart);
+        void LinkDmaToUartRx(UART_HandleTypeDef &uart);
+
     public:
         /// @brief 剩余的未传输的字节数。
         /// @note 将本次启动 DMA 所设置的目标传输字节数减去本属性，即可得到传输了多少个字节。
@@ -18,8 +21,5 @@ namespace bsp
         {
             return __HAL_DMA_GET_COUNTER(&_dma_handle);
         }
-
-        void LinkDmaToUartTx(UART_HandleTypeDef &uart);
-        void LinkDmaToUartRx(UART_HandleTypeDef &uart);
     };
 } // namespace bsp
