@@ -1,16 +1,14 @@
 #pragma once
 #include <base/SingletonGetter.h>
 #include <bsp-interface/di/interrupt.h>
-#include <bsp-interface/dma/IDmaChannel.h>
-#include <hal.h>
+#include <DmaChannel.h>
 
 namespace bsp
 {
     class Dma1Channel4 :
-        public bsp::IDmaChannel
+        public bsp::DmaChannel
     {
     private:
-        DMA_HandleTypeDef _dma_handle{};
         bool _is_open = false;
 
     public:
