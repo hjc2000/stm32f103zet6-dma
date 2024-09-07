@@ -2,7 +2,7 @@
 #include "Dma1Channel5.h"
 #include "DmaOptions.h"
 #include <base/container/Collection.h>
-#include <base/SingletonGetter.h>
+#include <base/di/SingletonGetter.h>
 #include <bsp-interface/di/dma.h>
 #include <bsp-interface/di/interrupt.h>
 #include <map>
