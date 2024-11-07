@@ -1,6 +1,32 @@
 #include "Dma1Channel5.h"
 #include "DmaOptions.h"
 
+bsp::Dma1Channel5 &bsp::Dma1Channel5::Instance()
+{
+    class Getter :
+        public base::SingletonGetter<Dma1Channel5>
+    {
+    public:
+        std::unique_ptr<Dma1Channel5> Create() override
+        {
+            return std::unique_ptr<Dma1Channel5>{new Dma1Channel5{}};
+        }
+
+        void Lock() override
+        {
+            DI_InterruptSwitch().DisableGlobalInterrupt();
+        }
+
+        void Unlock() override
+        {
+            DI_InterruptSwitch().EnableGlobalInterrupt();
+        }
+    };
+
+    Getter g;
+    return g.Instance();
+}
+
 std::string bsp::Dma1Channel5::Name() const
 {
     return "dma1_channel5";

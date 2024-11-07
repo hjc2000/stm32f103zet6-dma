@@ -31,9 +31,10 @@ base::IDictionary<std::string, bsp::IDmaChannel *> const &DI_DmaChannelCollectio
     public:
         base::Dictionary<std::string, bsp::IDmaChannel *> _collection;
 
-        static Initializer &Instance()
+        static_function Initializer &Instance()
         {
-            class Getter : public base::SingletonGetter<Initializer>
+            class Getter :
+                public base::SingletonGetter<Initializer>
             {
             public:
                 std::unique_ptr<Initializer> Create() override
